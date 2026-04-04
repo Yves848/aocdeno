@@ -13,17 +13,23 @@ export async function readDataInput(day : number): Promise<string> {
   return await Deno.readTextFile(`./inputs/${dayName(day)}/data.in`);
 }
 
-export async function runDay(day : number,
+export async function testDay(day : number,
   solvePart1 : (input : string) => string | number,
   solvePart2 : (input : string) => string | number
 ) : Promise<void> {
   const testInput = await readTestInput(day);
-  const dataInput = await readDataInput(day);
-
+  
   console.log("=== TEST ===");
   console.log("Part 1:",solvePart1(testInput));
   console.log("Part 2:",solvePart2(testInput));
+}   
 
+export async function runDay(day : number,
+  solvePart1 : (input : string) => string | number,
+  solvePart2 : (input : string) => string | number
+) : Promise<void> {
+  const dataInput = await readDataInput(day);
+  
   console.log("=== DATA ===");
   console.log("Part 1:", solvePart1(dataInput));
   console.log("Part 2:",solvePart2(dataInput));
