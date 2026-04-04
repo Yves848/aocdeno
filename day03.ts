@@ -98,7 +98,7 @@ function solvePart2(input : string): number | string {
     robot.y += dir.y;
     nb = 0;
     if (!grid.has(robot.x,robot.y)) {
-      grid.set(robot.x,santa.y,0);
+      grid.set(robot.x,robot.y,0);
     } else {
       nb = grid.get(robot.x,robot.y) ?? 0;
     }
