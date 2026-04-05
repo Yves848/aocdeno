@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2026-04-05 12:57:42.607,=C:\Users\yvesg\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 12:58:12.581,C:\Users\yvesg\git\aocdeno\uAOC.pas=C:\Users\yvesg\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 12:58:12.581,C:\Users\yvesg\git\aocdeno\uAOC.dfm=C:\Users\yvesg\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
+    <Transaction>2026-04-05 12:58:21.339,C:\Users\yvesg\git\aocdeno\AOC2025.dproj=C:\Users\yvesg\Documents\Embarcadero\Studio\Projets\Project1.dproj</Transaction>
+    <Transaction>2026-04-05 12:58:36.407,=C:\Users\yvesg\git\aocdeno\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 12:59:40.284,C:\Users\yvesg\git\aocdeno\commun\uaoc.commun.pas=C:\Users\yvesg\git\aocdeno\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 13:16:33.269,=C:\Users\yvesg\git\aocdeno\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 13:17:03.377,C:\Users\yvesg\git\aocdeno\commun\uaoc.consts.pas=C:\Users\yvesg\git\aocdeno\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 13:58:11.380,=C:\Users\yvesg\git\aocdeno\Unit1.pas</Transaction>
+    <Transaction>2026-04-05 13:58:25.209,C:\Users\yvesg\git\aocdeno\Unit1.pas=</Transaction>
+    <Transaction>2026-04-05 14:11:13.749,=C:\Users\yvesg\git\aocdeno\Unit2.pas</Transaction>
+    <Transaction>2026-04-05 14:11:28.915,C:\Users\yvesg\git\aocdeno\commun\uaoc.http.pas=C:\Users\yvesg\git\aocdeno\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

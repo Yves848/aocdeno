@@ -1,0 +1,9 @@
+﻿unit uaoc.consts;
+
+interface
+const
+  OAC_KEY = 'ownerproof-5686036-1775387766-6b45b2acfe98';
+  AOC_SESSION = '53616c7465645f5f1393a8f286e6bdfc3001a316f7632b18bb98b49527e1b4f3bdda564d0db0d87e906745eac0c443c639ec555bd742e3098f61dc0931aae3e6';
+implementation
+
+end.

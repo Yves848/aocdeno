@@ -1,0 +1,9 @@
+﻿unit uaoc.consts;
+
+interface
+const
+  OAC_KEY = 'ownerproof-5686036-1775387766-6b45b2acfe98';
+
+implementation
+
+end.
