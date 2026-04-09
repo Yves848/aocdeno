@@ -1,0 +1,32 @@
+﻿unit uaoc.puzzlestore;
+
+interface
+uses
+  System.SysUtils,
+  System.IOUtils,
+  System.Net.HttpClient,
+  System.Net.URLClient,
+  System.Classes,
+  System.Generics.Collections,
+  uaoc.consts;
+
+type
+  tPuzzleStore = class
+  private
+        fDataDir : String;
+  public
+        constructor create; overload;
+  end;
+
+implementation
+
+{ tPuzzleStore }
+
+constructor tPuzzleStore.create;
+begin
+        inherited Create;
+
+end;
+
+end.
+

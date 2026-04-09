@@ -14,6 +14,7 @@ uses
   Vcl.Dialogs,
   uAOC.commun,
   uaoc.consts,
+  uaoc.puzzlestore,
   Vcl.StdCtrls,
   Vcl.ExtCtrls, SynEdit;
 
@@ -32,8 +33,10 @@ type
     procedure cbbAnneeChange(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure btnDataClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Déclarations privées }
+    pPuzzleStore : tPuzzleStore;
   public
     { Déclarations publiques }
     procedure BuildCombos(var M : TMessage); Message WM_BUILD_COMBO;
@@ -54,6 +57,7 @@ begin
    pDay.DownloadPuzzle;
    syndt1.Clear;
    syndt1.Text := pDay.puzzle;
+
    pDay.destroy;
 end;
 
@@ -88,9 +92,16 @@ begin
    cbbjour.ItemIndex := 0;
 end;
 
+procedure TfAOC.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if assigned(pPuzzleStore) then
+        FreeandNil(pPuzzleStore);
+end;
+
 procedure TfAOC.FormShow(Sender: TObject);
 begin
   PERFORM(WM_BUILD_COMBO,0,0);
+  pPuzzleStore := tPuzzleStore.create;
 end;
 
 end.

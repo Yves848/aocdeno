@@ -4,6 +4,7 @@ interface
 
 uses
   System.SysUtils,
+  System.IOUtils,
   System.Net.HttpClient,
   System.Net.URLClient,
   System.Classes,
@@ -47,6 +48,7 @@ type
   public
     class function getYears: tStrings; static;
     class function getDays(pYear: Integer): tStrings; static;
+    class procedure SaveData(pYear, pDay : Integer; pData : String); static;
   end;
 
 implementation
@@ -168,6 +170,14 @@ begin
     Result.Add(inttostr(annee));
   end;
 
+end;
+
+class procedure tHelper.SaveData(pYear, pDay: Integer; pData: String);
+var
+        sPath : String;
+begin
+    sPath := tPath.Combine(IncludeTrailingBackslash(ExtractFiledir(paramstr(0))),format('\%d\%d\data.in',[pyear,pday]));
+    tFile.WriteAllText(sPath,pData);
 end;
 
 end.

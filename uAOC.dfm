@@ -10,6 +10,7 @@ object fAOC: TfAOC
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnClose = FormClose
   OnShow = FormShow
   DesignSize = (
     1082

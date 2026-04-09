@@ -2,16 +2,17 @@
 
 uses
   Vcl.Forms,
-  uAOC in 'uAOC.pas' {Form1},
+  uAOC in 'uAOC.pas' {fAOC},
   uaoc.commun in 'commun\uaoc.commun.pas',
   uaoc.consts in 'commun\uaoc.consts.pas',
-  uaoc.http in 'commun\uaoc.http.pas';
+  uaoc.http in 'commun\uaoc.http.pas',
+  uaoc.puzzlestore in 'commun\uaoc.puzzlestore.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfAOC, fAOC);
   Application.Run;
 end.

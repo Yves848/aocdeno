@@ -1,0 +1,174 @@
+﻿unit uaoc.commun;
+
+interface
+
+uses
+  System.SysUtils,
+  System.Net.HttpClient,
+  System.Net.URLClient,
+  System.Classes,
+  System.Generics.Collections,
+  uaoc.consts;
+
+type
+  taoc = class
+  private
+    fyear: Integer;
+  public
+    constructor create(pYear: Integer);
+  end;
+
+  tday = class(taoc)
+  private
+    fDay: integer;
+    fPuzzle: string;
+    fData: string;
+    fPuzzleUrl: string;
+    fInputUrl: string;
+    fHTTPClient: THTTPClient;
+    function getDay: Integer;
+    procedure SetDay(const Value: Integer);
+    procedure SolvePart1; virtual; abstract;
+    procedure SolvePart2; virtual; abstract;
+  protected
+    procedure GetPuzzleUrl;
+    procedure GetInputUrl;
+  public
+    constructor create(pyear: integer; pday: integer); overload;
+    destructor destroy; overload;
+    procedure DownloadPuzzle;
+    procedure DownloadData;
+    property day: Integer read getDay write SetDay;
+    property puzzle: string read fpuzzle write fpuzzle;
+    property data: string read fData write fData;
+  end;
+
+  tHelper = class
+  public
+    class function getYears: tStrings; static;
+    class function getDays(pYear: Integer): tStrings; static;
+  end;
+
+implementation
+
+{ day }
+
+constructor tday.create(pYear: integer; pDay: integer);
+begin
+  inherited create(pYear);
+  fDay := pDay;
+  fHTTPClient := THTTPClient.Create;
+  fHTTPClient.UserAgent := 'Delphi Advent of Code Helper';
+  fHTTPClient.ConnectionTimeout := 10000;
+  fHTTPClient.ResponseTimeout := 30000;
+  fHTTPClient.CustomHeaders['Cookie'] := 'session=' + AOC_SESSION;
+end;
+
+{ aoc }
+
+constructor taoc.create(pYear: Integer);
+begin
+  fyear := pYear;
+end;
+
+destructor tday.destroy;
+begin
+  if assigned(fHTTPClient) then
+    FreeAndNil(fHTTPClient);
+end;
+
+procedure tday.DownloadData;
+var
+  Response: IHTTPResponse;
+begin
+  try
+    GetInputUrl;
+    Response := fHTTPClient.Get(fInputUrl);
+
+    if Response.StatusCode <> 200 then
+      raise Exception.CreateFmt('Erreur HTTP %d sur %s', [Response.StatusCode, fInputUrl]);
+
+    data := Response.ContentAsString(TEncoding.UTF8);
+  finally
+
+  end;
+end;
+
+procedure tday.DownloadPuzzle;
+var
+  Response: IHTTPResponse;
+begin
+  try
+    GetPuzzleUrl;
+    Response := fHTTPClient.Get(fPuzzleUrl);
+
+    if Response.StatusCode <> 200 then
+      raise Exception.CreateFmt('Erreur HTTP %d sur %s', [Response.StatusCode, fPuzzleUrl]);
+
+    puzzle := Response.ContentAsString(TEncoding.UTF8);
+  finally
+
+  end;
+
+end;
+
+function tday.getDay: Integer;
+begin
+  Result := fDay;
+end;
+
+procedure tday.GetInputUrl;
+begin
+  fInputUrl := Format('https://adventofcode.com/%d/day/%d/input', [FYear, FDay]);
+end;
+
+procedure tday.GetPuzzleUrl;
+begin
+  fPuzzleUrl := Format('https://adventofcode.com/%d/day/%d', [FYear, FDay]);
+end;
+
+procedure tday.SetDay(const Value: Integer);
+begin
+  fDay := Value;
+end;
+
+{ tHelper }
+
+class function tHelper.getDays(pYear: Integer): tStrings;
+var
+  borneMin, borneMax: integer;
+  day: integer;
+begin
+  borneMin := 1;
+  case pYear of
+    2015..2024:
+      begin
+        borneMax := 25;
+      end
+  else
+    begin
+      borneMax := 12;
+    end;
+  end;
+  Result := tStringList.Create;
+  for day := borneMin to borneMax do
+  begin
+    Result.Add(inttostr(day));
+  end;
+
+end;
+
+class function tHelper.getYears: tStrings;
+var
+  annee: Integer;
+begin
+  Result := tStringList.create;
+  for annee := 2015 to 2025 do
+  begin
+    Result.Add(inttostr(annee));
+  end;
+
+end;
+
+end.
+

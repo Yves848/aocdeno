@@ -1,0 +1,33 @@
+﻿unit uaoc.puzzlestore;
+
+interface
+
+uses
+  System.SysUtils,
+  System.IOUtils,
+  System.Net.HttpClient,
+  System.Net.URLClient,
+  System.Classes,
+  System.Generics.Collections,
+  uaoc.consts;
+
+type
+  tPuzzleStore = class
+  private
+    fDataDir: string;
+  public
+    constructor create; overload;
+  end;
+
+implementation
+
+{ tPuzzleStore }
+
+constructor tPuzzleStore.create;
+begin
+  inherited Create;
+  fDataDir := tPath.Combine(IncludeTrailingBackslash(ExtractFiledir(paramstr(0))),'\data');
+end;
+
+end.
+

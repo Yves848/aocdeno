@@ -124,12 +124,13 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="uAOC.pas">
-            <Form>Form1</Form>
+            <Form>fAOC</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="commun\uaoc.commun.pas"/>
         <DCCReference Include="commun\uaoc.consts.pas"/>
         <DCCReference Include="commun\uaoc.http.pas"/>
+        <DCCReference Include="commun\uaoc.puzzlestore.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

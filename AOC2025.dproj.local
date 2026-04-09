@@ -13,5 +13,7 @@
     <Transaction>2026-04-05 13:58:25.209,C:\Users\yvesg\git\aocdeno\Unit1.pas=</Transaction>
     <Transaction>2026-04-05 14:11:13.749,=C:\Users\yvesg\git\aocdeno\Unit2.pas</Transaction>
     <Transaction>2026-04-05 14:11:28.915,C:\Users\yvesg\git\aocdeno\commun\uaoc.http.pas=C:\Users\yvesg\git\aocdeno\Unit2.pas</Transaction>
+    <Transaction>2026-04-07 18:55:48.719,=C:\Users\yvesg\git\aocdeno\Unit2.pas</Transaction>
+    <Transaction>2026-04-07 18:56:07.369,C:\Users\yvesg\git\aocdeno\commun\uaoc.puzzlestore.pas=C:\Users\yvesg\git\aocdeno\Unit2.pas</Transaction>
   </Transactions>
 </BorlandProject>
