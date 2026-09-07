@@ -1,0 +1,3 @@
+# macOS clutter. This repository had a .DS_Store committed until 2026-09-07;
+# untracking it is not enough, git keeps following what it already follows.
+.DS_Store
